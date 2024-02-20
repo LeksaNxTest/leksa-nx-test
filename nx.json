@@ -52,5 +52,12 @@
         "linter": "eslint"
       }
     }
+  },
+  "targetDefaults": {
+    "test": {
+      "options": {
+        "passWithNoTests": true
+      }
+    }
   }
 }
