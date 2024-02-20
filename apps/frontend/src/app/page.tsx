@@ -1,5 +1,5 @@
 export default async function Index() {
-  const res = await fetch(process.env.API_URL!);
+  const res = await fetch(process.env.API_URL! + '/api');
   const { message } = await res.json();
   console.log(message)
   return (
