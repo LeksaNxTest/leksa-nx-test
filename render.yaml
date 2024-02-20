@@ -1,0 +1,28 @@
+previewsEnabled: true
+services:
+  - type: web
+    plan: free
+    previewPlan: free
+    name: api
+    runtime: node
+    branch: main
+    buildCommand: npm install; npx nx run api:build
+    startCommand: npx nx run api:serve:production
+    envVars:
+      - key: PORT
+        value: 3000
+        previewValue: 3000
+  - type: web
+    plan: free
+    previewPlan: free
+    name: frontend
+    runtime: node
+    branch: main
+    buildCommand: npm install; npx nx run frontend:build
+    startCommand: npx nx run frontend:start
+    envVars:
+      - key: API_URL
+        fromService:
+          type: web
+          name: api
+          property: host
